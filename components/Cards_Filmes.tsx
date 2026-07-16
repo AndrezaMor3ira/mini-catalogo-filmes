@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { navItems } from "@/data/data";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,19 @@ import Tag from "./Tags";
 
 export default function Cards_Filmes() {
   const [busca, setBusca] = useState("");
-  const [favoritos, setFavoritos] = useState<number[]>([]);
+  const [favoritos, setFavoritos] = useState<number[]>(() => {
+    if (typeof window !== "undefined") {
+      const favoritosSalvos = localStorage.getItem("meusFavoritos");
+      if (favoritosSalvos) {
+        return JSON.parse(favoritosSalvos);
+      }
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("meusFavoritos", JSON.stringify(favoritos));
+  }, [favoritos]);
 
   const toggleFavorito = (id: number) => {
     if (favoritos.includes(id)) {

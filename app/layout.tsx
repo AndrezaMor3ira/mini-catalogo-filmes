@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const inter = Inter({
   variable: "--font-manrope",
@@ -21,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.className} sm:px-8 pt-16 p-2 sm:px-[40px] md:px-[40px] lg:px-[80px]`}
+        className={`${inter.className} sm:px-8 p-2 sm:px-[40px] md:px-[40px] lg:px-[80px]`}
       >
+        <Header />
         <main className="min-h-svh">{children}</main>
       </body>
     </html>
