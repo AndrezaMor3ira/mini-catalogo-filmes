@@ -77,32 +77,35 @@ export default function Cards_Filmes() {
                   height={400}
                   className="w-full aspect-video object-cover rounded-t-2xl"
                 />
-                <h3 className="text-[#17181F] p-[16px] font-bold text-[20px] mt-3">
-                  {item.titulo}
-                </h3>
 
-                <div className="text-[26px] p-[16px] text-[#747985] flex flex-row  justify-between items-center w-full mt-2 gap-2">
-                  <Tag genero={item.genero} />
-                  <Image
-                    src={
-                      isFavorito ? "/images/HeartLike.svg" : "/images/Heart.svg"
-                    }
-                    alt="Favoritar"
-                    width={32}
-                    height={32}
-                    className="cursor-pointer hover:scale-110 transition-transform"
-                    onClick={() => toggleFavorito(item.id)}
-                  />
-                </div>
-
-                <div className="text-[14px] p-[16px] text-[#747985] flex flex-row  justify-between items-center w-full mt-4">
-                  <p className="text-gray-400">{item.ano}</p>
-                  <Link
-                    href={`/filme/${item.id}`}
-                    className="text-[12px] text-[#17191f] hover:underline transition-colors"
-                  >
-                    Saiba mais...
-                  </Link>
+                <div className="flex flex-col p-[16px] gap-3">
+                  <h3 className="text-[#17181F] font-bold text-[20px]">
+                    {item.titulo}
+                  </h3>{" "}
+                  <div className="text-[26px] text-[#747985] flex flex-row  justify-between items-center w-full">
+                    <Tag genero={item.genero} />
+                    <Image
+                      src={
+                        isFavorito
+                          ? "/images/HeartLike.svg"
+                          : "/images/Heart.svg"
+                      }
+                      alt="Favoritar"
+                      width={32}
+                      height={32}
+                      className="cursor-pointer hover:scale-110 transition-transform"
+                      onClick={() => toggleFavorito(item.id)}
+                    />
+                  </div>
+                  <div className="text-[14px] text-[#747985] flex flex-row  justify-between items-center w-full mt-auto pt-2">
+                    <p className="text-gray-400">{item.ano}</p>
+                    <Link
+                      href={`/filme/${item.id}`}
+                      className="text-[12px] text-[#17191f] hover:underline transition-colors"
+                    >
+                      Saiba mais...
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
