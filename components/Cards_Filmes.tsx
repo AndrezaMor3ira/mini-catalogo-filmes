@@ -8,19 +8,26 @@ import Tag from "./Tags";
 
 export default function Cards_Filmes() {
   const [busca, setBusca] = useState("");
-  const [favoritos, setFavoritos] = useState<number[]>(() => {
-    if (typeof window !== "undefined") {
-      const favoritosSalvos = localStorage.getItem("meusFavoritos");
-      if (favoritosSalvos) {
-        return JSON.parse(favoritosSalvos);
-      }
-    }
-    return [];
-  });
+  const [favoritos, setFavoritos] = useState<number[]>([]);
+
+  const [prontoSalvar, setProntoSalvar] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("meusFavoritos", JSON.stringify(favoritos));
-  }, [favoritos]);
+    const carregarFavoritos = setTimeout(() => {
+      const favoritosSalvos = localStorage.getItem("meusFavoritos");
+      if (favoritosSalvos) {
+        setFavoritos(JSON.parse(favoritosSalvos));
+      }
+      setProntoSalvar(true);
+    }, 0);
+    return () => clearTimeout(carregarFavoritos);
+  }, []);
+
+  useEffect(() => {
+    if (prontoSalvar) {
+      localStorage.setItem("meusFavoritos", JSON.stringify(favoritos));
+    }
+  }, [favoritos, prontoSalvar]);
 
   const toggleFavorito = (id: number) => {
     if (favoritos.includes(id)) {
