@@ -11,9 +11,10 @@ export default function Home() {
           alt="logo"
           width={64}
           height={64}
+          className="min-[200px]:max-w-[24px] min-[500px]:max-w-[64px]"
         />
 
-        <div className="sm:text-4xl text-2xl font-bold">
+        <div className="min-[490px]:text-2xl min-[985px]:text-4xl font-bold">
           Mini Catálogo de Filmes
         </div>
       </div>

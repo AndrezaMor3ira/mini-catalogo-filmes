@@ -23,8 +23,8 @@ export default function Cards_Filmes() {
   );
 
   return (
-    <div className="flex flex-col items-center w-full px-4 md:px-8 gap-8">
-      <div className="w-full min-[400px]:max-w-[400px] min-[1070px]:max-w-[820px] min-[1680px]:max-w-full mx-auto relative">
+    <div className="flex flex-col items-center w-full">
+      <div className="w-full max-w-2xl mb-12 relative">
         <div className="absolute left-4 top-1/2 -translate-y-1/2">
           <Image
             src="/images/MagnifyingGlass.svg"
@@ -41,28 +41,28 @@ export default function Cards_Filmes() {
           className="w-full bg-[#18181b] border border-gray-700 text-gray-300 rounded-md py-3 pl-12 pr-4 focus:outline-none focus:border-gray-500 transition-colors"
         />
       </div>
-      <div className="flex flex-row flex-wrap gap-6 w-full items-center justify-center min-[1420px]:max-w-[1200px] min-[1680px]:max-w-full mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {filmesFiltrados.map((item) => {
           const isFavorito = favoritos.includes(item.id);
 
           return (
             <div
               key={item.id}
-              className="w-full h-full bg-[#171521] rounded-xl p-[16px] flex flex-col gap-6 min-w-[200px] max-w-[400px]"
+              className="bg-[#171521] rounded-xl p-[16px] flex flex-col gap-6"
             >
               <div>
                 <Image
                   src={item.imagem}
                   alt={`Capa do filme ${item.titulo}`}
-                  width={400}
-                  height={400}
-                  className="w-full aspect-video object-cover rounded-md"
+                  width={300}
+                  height={160}
+                  className="w-full h-40 object-cover rounded-md"
                 />
                 <h3 className="text-white font-medium text-lg mt-3">
                   {item.titulo}
                 </h3>
 
-                <div className="flex flex-row  justify-between items-center w-full mt-2 gap-2">
+                <div className="flex flex-col sm:flex-row  justify-between items-center w-full mt-2 gap-2">
                   <Tag genero={item.genero} />
                   <Image
                     src={
@@ -76,7 +76,7 @@ export default function Cards_Filmes() {
                   />
                 </div>
 
-                <div className="flex flex-row  justify-between items-center w-full mt-4">
+                <div className="flex flex-col sm:flex-row justify-between items-center w-full mt-4">
                   <p className="text-gray-400">{item.ano}</p>
                   <Link
                     href={`/filme/${item.id}`}
