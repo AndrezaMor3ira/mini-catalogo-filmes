@@ -67,7 +67,7 @@ export default function Cards_Filmes() {
           return (
             <div
               key={item.id}
-              className="w-full h-full bg-[#ffffff] border border-[#e2e4e8] rounded-xl  flex flex-col gap-2 min-w-[200px] max-w-[400px]"
+              className="w-full h-full bg-[#ffffff] border border-[#e2e4e8] rounded-xl  flex flex-col gap-2 min-w-[200px] max-w-[400px] flex-1 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-[#d6d6d6] hover:bg-[#eeeeee] hover:border-white"
             >
               <div>
                 <Image
