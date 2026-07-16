@@ -19,7 +19,7 @@ export default async function FilmeDetalhes({
         <h1 className="text-2xl font-bold mb-4">Filme não encontrado!</h1>
         <Link
           href="/"
-          className="bg-white text-black px-4 py-2 rounded-md font-bold"
+          className="bg-[#ffffff] border border-[#e2e4e8] px-4 py-2 rounded-md font-bold"
         >
           Voltar para Home
         </Link>
@@ -28,16 +28,16 @@ export default async function FilmeDetalhes({
   }
 
   return (
-    <main className="text-white">
+    <main className="text-black">
       <div className="mb-8">
         <Link
           href="/"
-          className="text-gray-400 hover:text-white hover:underline"
+          className="text-gray-800 hover:text-black hover:underline"
         >
           &larr; Voltar
         </Link>
       </div>
-      <div className="flex flex-col md:flex-row gap-8 bg-[#171521] p-8 rounded-xl">
+      <div className="flex flex-col md:flex-row gap-8 bg-[#ffffff] border border-[#e2e4e8]  p-8 rounded-xl">
         <div className="w-full md:w-1/3">
           <Image
             src={filme.imagem}
@@ -50,7 +50,7 @@ export default async function FilmeDetalhes({
 
         <div className="w-full md:w-2/3 flex flex-col gap-4">
           <h1 className="text-4xl font-bold">{filme.titulo}</h1>
-          <div className="flex gap-4 text-gray-300">
+          <div className="flex gap-4 text-gray-600">
             <span>Ano: {filme.ano}</span> <span>•</span>
             <span>
               Gênero: <Tag genero={filme.genero} />
@@ -58,7 +58,7 @@ export default async function FilmeDetalhes({
           </div>
           <div className="mt-4">
             <h2 className="text-2xl font-semibold mb-2">Sinopse</h2>
-            <p className="text-gray-300 leading-relaxed">{filme.sinopse}</p>
+            <p className="text-gray-600 leading-relaxed">{filme.sinopse}</p>
           </div>
         </div>
       </div>

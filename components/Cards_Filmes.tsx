@@ -24,7 +24,7 @@ export default function Cards_Filmes() {
 
   return (
     <div className="flex flex-col items-center w-full px-4 md:px-8 gap-8">
-      <div className="w-full min-[400px]:max-w-[400px] min-[1070px]:max-w-[820px] min-[1680px]:max-w-full mx-auto relative">
+      <div className="w-full min-[400px]:max-w-[400px] min-[1070px]:max-w-[820px]  mx-auto relative">
         <div className="absolute left-4 top-1/2 -translate-y-1/2">
           <Image
             src="/images/MagnifyingGlass.svg"
@@ -38,7 +38,7 @@ export default function Cards_Filmes() {
           placeholder="Nome do filme..."
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
-          className="w-full bg-[#18181b] border border-gray-700 text-gray-300 rounded-md py-3 pl-12 pr-4 focus:outline-none focus:border-gray-500 transition-colors"
+          className="w-full  bg-[#ffffff] border border-gray-400 text-black rounded-[60px] py-3 pl-12 pr-4 focus:outline-none focus:border-black transition-colors"
         />
       </div>
       <div className="flex flex-row flex-wrap gap-6 w-full items-center justify-center min-[1420px]:max-w-[1200px] min-[1680px]:max-w-full mx-auto">
@@ -48,7 +48,7 @@ export default function Cards_Filmes() {
           return (
             <div
               key={item.id}
-              className="w-full h-full bg-[#171521] rounded-xl p-[16px] flex flex-col gap-6 min-w-[200px] max-w-[400px]"
+              className="w-full h-full bg-[#ffffff] border border-[#e2e4e8] rounded-xl  flex flex-col gap-2 min-w-[200px] max-w-[400px]"
             >
               <div>
                 <Image
@@ -56,13 +56,13 @@ export default function Cards_Filmes() {
                   alt={`Capa do filme ${item.titulo}`}
                   width={400}
                   height={400}
-                  className="w-full aspect-video object-cover rounded-md"
+                  className="w-full aspect-video object-cover rounded-t-2xl"
                 />
-                <h3 className="text-white font-medium text-lg mt-3">
+                <h3 className="text-[#17181F] p-[16px] font-bold text-[20px] mt-3">
                   {item.titulo}
                 </h3>
 
-                <div className="flex flex-row  justify-between items-center w-full mt-2 gap-2">
+                <div className="text-[26px] p-[16px] text-[#747985] flex flex-row  justify-between items-center w-full mt-2 gap-2">
                   <Tag genero={item.genero} />
                   <Image
                     src={
@@ -76,11 +76,11 @@ export default function Cards_Filmes() {
                   />
                 </div>
 
-                <div className="flex flex-row  justify-between items-center w-full mt-4">
+                <div className="text-[14px] p-[16px] text-[#747985] flex flex-row  justify-between items-center w-full mt-4">
                   <p className="text-gray-400">{item.ano}</p>
                   <Link
                     href={`/filme/${item.id}`}
-                    className="text-white hover:underline transition-colors"
+                    className="text-[12px] text-[#17191f] hover:underline transition-colors"
                   >
                     Saiba mais...
                   </Link>
